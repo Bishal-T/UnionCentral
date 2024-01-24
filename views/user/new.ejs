@@ -1,0 +1,31 @@
+<%- include('../partials/header.ejs') %>
+  
+<main>
+    <div class="event-form ">
+        <h1>Sign-Up</h1>
+        <form action="/users" enctype="multipart/form-data" method="POST">
+
+    
+            <label for="firstName">First Name: </label>
+            <input required name="firstName" id="firstName" type="text" placeholder="First Name">
+
+            <label for="lastName">Last Name: </label>
+            <input required name="lastName" id="lastName" type="text" placeholder="Last Name">
+
+            <label for="email">Email: </label>
+            <input required name="email" id="email" type="text" placeholder="Email">
+
+            <label for="password">Password: </label>
+            <input required id="password" name="password" type="password" placeholder="Password">
+
+            <label for="image">Profile Image: </label>
+            <input required type="file" id="image" name="image">
+
+
+            <input type="submit" value="Sign-Up">
+        </form>
+    </div>
+
+</main>
+
+    <%- include('../partials/footer.ejs') %>

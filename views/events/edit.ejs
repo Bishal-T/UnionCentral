@@ -1,0 +1,50 @@
+<%- include('../partials/header.ejs') %>
+
+<main>
+  <div class="event-form ">
+    <h1>Create Event</h1>
+    <form action="/events/<%= event.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
+
+      <label for="category">Category:</label>
+      <select name="category" id="category">
+        <option value="Music Concert" <%=event.category === 'Music Concert' ? 'selected' : '' %>>Music Concert</option>
+        <option value="Movie Night" <%=event.category === 'Movie Night' ?
+          'selected' : '' %>>Movie Night</option>
+        <option value="Sports Game" <%=event.category === 'Sports Game' ?
+          'selected' : '' %>>Sports Game</option>
+        <option value="Food Festival" <%=event.category === 'Food Festival' ?
+          'selected' : '' %>>Food Festival</option>
+        <option value="Game Night" <%=event.category === 'Game Night' ?
+          'selected' : '' %>>Game Night</option>
+      </select>
+
+      <label for="title">Title: </label>
+      <input required name="title" id="title" type="text"
+        value="<%= event.title %>">
+
+      <label for="details">Details: </label>
+      <textarea required name="details" id="details"><%= event.details %></textarea>
+
+      <label for="location">Where: </label>
+      <input required name="location" id="location" type="text"
+        value="<%= event.location %>">
+
+      <label for="eventStart">Start: </label>
+      <input type="datetime-local" name="eventStart" id="start"
+        value="<%= new Date(event.eventStart + ' GMT').toISOString().replace('Z', '') %>">
+
+      <label for="eventEnd">End: </label>
+      <input type="datetime-local" name="eventEnd" id="end"
+        value="<%= new Date(event.eventEnd + ' GMT').toISOString().replace('Z', '') %>">
+
+      <label for="image">Image: </label>
+      <input required type="file" id="image" name="image">
+
+      <input type="submit" value="Send">
+
+    </form>
+  </div>
+
+</main>
+
+<%- include('../partials/footer.ejs') %>

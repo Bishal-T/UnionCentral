@@ -1,0 +1,29 @@
+<%- include('../partials/header.ejs') %>
+<main class="contact-main">
+    <section id="contact-form">
+        <h2>Get in Touch</h2>
+        <form action="#" method="post">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <input id="contact" type="submit" value="Send Message">
+        </form>
+    </section>
+
+    <section id="contact-info">
+        <h2>Contact Information</h2>
+        <address>
+            <p><strong>Address:</strong> 8845 Craver Rd, Charlotte, NC 28262</p>
+            <p><strong>Email:</strong> unionCentral@charlotte.edu</p>
+            <p><strong>Phone:</strong> +1 (704) 687-7100</p>
+        </address>
+    </section>
+</main>
+
+<%- include('../partials/footer.ejs') %>

@@ -1,0 +1,40 @@
+<%- include('../partials/header.ejs') %>
+
+<main>
+
+
+
+    <div class="current-events-container">
+      <% if(events.length) {%>
+      <% category.forEach(category => { %>
+        <div class="current-events">
+          <div class="activities">
+            <div class="activities-header">
+              <h1><%= category %></h1>
+ 
+            </div>
+            <div class="activities-body">
+              <% events.forEach(event => { %>
+                <% if (event.category === category) { %>
+                  <ul>
+                    <li><a href="/events/<%= event.id %>"><%= event.title %></a></li>
+                  </ul>
+                <% } %>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+      <%} else {%>
+        <div class="error-container">
+          <h1 class="error-code">No events to display</h1>
+        
+      <% } %>
+    </div>
+
+
+   
+</main>
+
+
+<%- include('../partials/footer.ejs') %>

@@ -1,0 +1,22 @@
+<%- include('../partials/header.ejs') %>
+  
+<main>
+    <div class="event-form ">
+        <h1>Login</h1>
+        <form action="/users/login" method="POST">
+
+
+            <label for="email">Email: </label>
+            <input required name="email" id="email" type="text" placeholder="Email">
+
+            <label for="password">Password: </label>
+            <input required id="password" name="password" type="password" placeholder="Password">
+
+
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+</main>
+
+    <%- include('../partials/footer.ejs') %>

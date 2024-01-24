@@ -1,0 +1,79 @@
+<%- include('../partials/header.ejs') %>
+  <div class="profile-background">
+<div class="profile-container">
+    <div class="profile-header">
+        <img class="card_profile_img" src="<%= user.image %>" alt="profile image">
+        <div class="header-text">
+            <h1>Welcome: <%= user.firstName  %></h1>
+ 
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="greet-user">
+            <h2>Your Events:</h2>
+            
+            <% if (event.length) { %>
+                <div class="button-group">
+                <ul class="user-stories">
+                    <% var i=1; event.forEach(event => { %>
+                        <li><a href="/events/<%= event.id%>"><%=i %>. <%= event.title%></a>
+                        
+                            <form >
+                                <button class="pro-edit-button" type="submit" formmethod="GET" formaction="/events/<%= event._id %>/edit">Edit</button>
+                                <button class="pro-delete-button" type="submit" formmethod="POST" formaction="/events/<%= event._id %>?_method=DELETE">Delete</button>
+                            </form>
+                        </li>
+                        <% i++; %>
+                    <% }) %>
+                </ul>
+            </div>
+            <% } else { %>
+                <p>No events to display</p>
+            <% } %>
+
+          
+        </div>
+
+        <div class="user-info">
+            <h2>Account Info:</h2>
+            <p>Name: <%= user.firstName + ' ' + user.lastName%></p>
+            <p>Email: <%= user.email %></p>
+        </div>
+
+        <div class="user-info">
+            <% if (rsvp.length) { %>
+            <ul class="user-stories">
+            <h2>Planned to Attend: </h2>
+            <p>
+                <span class="green-going">Going</span> 
+                <span class="maybe-yellow">Maybe</span> 
+                <span class="no-red">No</span> 
+            
+            </p>
+
+           
+             
+           
+            <% var i=1; rsvp.forEach((rsvp) => { %>
+
+                <% if (rsvp && rsvp.event) { %>
+                    <li><a href="/events/<%= rsvp.event.id%>"><%=i %>. <%= rsvp.event.title%></a> 
+                        <span class="yes-span"><%= rsvp.status %> </span>
+                        </li>
+                <% } %>
+                <% i++; %>
+                
+              <% }); %>
+            </ul>
+
+            <% } else { %>
+                <p>No RVSP Made</p>
+            <% } %>
+    </div>
+</div>
+
+</div>
+    
+  
+<%- include('../partials/footer.ejs') %>

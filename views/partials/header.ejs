@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Union-Central</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <script defer src="/javascript/main.js"></script>
+
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+              <a href="/"><img src="/../images/logo.png" alt="logo"></a>
+            </div>
+
+          
+            <div class="menu">
+            <ul class="nav-links">
+                <% if(!user) {%>
+                <li><a href="/events">Current Events</a></li>
+                <li>|</li>
+                <li><a href="/users/new">Sign-up</a></li>
+                <li>|</li>
+                <li><a href="/users/login">Login</a></li>
+                <%} else  {%>
+                <li><a href="/events">Current Events</a></li>
+                <li>|</li>
+                <li><a href="/events/new">Create Events</a></li>
+                <li>|</li>
+                <li><a href="/users/profile"><%= user.name %><%= user.firstName %>'s Profile</a></li>
+                <li>|</li>
+                <li><a href="/users/logout">Logout</a></li>
+                <%}%>
+
+
+            </ul>
+          </div>
+          </nav>
+    </header>
+
+
+    <% if(successMessages.length > 0) {%>
+    
+        <% successMessages.forEach(message=>{%>
+            <div class='success message'>
+                <%=message%>
+                <button class="hide-button">X</button>
+            </div>
+            <%});%>
+                <%}%>
+
+
+    
+    <% if(errorMessages.length > 0) {%>
+        <% errorMessages.forEach(message=>{%>
+            <div class='error message'>
+                <%=message%>
+                <button class="hide-button">X</button>
+
+            </div>
+            <%});%>
+                <%}%>
+    
+
+
+
+                
+             

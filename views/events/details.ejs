@@ -1,0 +1,59 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+    <section class="events-details">
+      <div class="details-div">
+        <img src="<%= event.image%>"  alt="Event Pic" class="details-pic">
+        <div class="details-title">
+          <h2><%= event.title %></h2>
+
+
+         
+           
+          <form>
+            <% if (user) { %>
+              <% if (user.id == event.host._id) { %>
+              <% } else if (user.id !== event.host._id) { %>
+                <div class="buttons">
+                  <label class="rsvp-label">Attending: </label>
+                  <button class="rsvp-button yes" type="submit" formmethod="POST" name="status" value="Yes" formaction="/events/<%= event._id %>/rsvp">Yes</button>
+                  <button class="rsvp-button no " type="submit" formmethod="POST" name="status" value="No" formaction="/events/<%= event._id %>/rsvp">No</button>
+                  <button class="rsvp-button maybe" type="submit" formmethod="POST" name="status" value="Maybe" formaction="/events/<%= event._id %>/rsvp">Maybe</button>
+                </div>
+              <% } %>
+            <% } %>
+          </form>
+          
+          <div class="events-info">
+         <label>Category:</label>
+         <p><%= event.category %></p>
+
+          <label>Host:</label>
+          <p><%= event.host.firstName + ' ' + event.host.lastName%></p>
+
+          <label>Details:</label>
+          <p><%= event.details %></p>
+
+          <label>Location:</label>
+          <p><%= event.location %></p>
+
+          <label>Start-Date:</label>
+          <p><%= event.eventStart %></p>
+
+          <label>End-Date:</label>
+          <p><%= event.eventEnd %></p>
+
+          <label>Number of Rsvps: </label>
+          <p><%=rsvps.length%></p>
+          </div>
+       
+      
+        </div>
+      </div>
+    </section>
+  </body>
+
+    <%- include('../partials/footer.ejs') %>
+
+
+    

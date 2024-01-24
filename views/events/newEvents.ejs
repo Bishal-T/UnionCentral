@@ -1,0 +1,48 @@
+<%- include('../partials/header.ejs') %>
+
+<main>
+    <div class="event-form ">
+        <h1>Create Event</h1>
+        <form action="/events" enctype="multipart/form-data" method="POST">
+
+            <label for="category">Category:</label>
+            <select name="category" id="category" required>
+                <option value disabled selected hidden>Select Category</option>
+                <option value="Music Concert">Music Concert</option>
+                <option value="Movie Night">Movie Night</option>
+                <option value="Sports Game">Sports Game</option>
+                <option value="Food Festival">Food Festival</option>
+                <option value="Game Night">Game Night</option>
+
+            </select>
+
+            <label for="title">Title: </label>
+            <input required name="title" id="title" type="text"
+                placeholder="Title">
+
+
+            <label for="details">Details: </label>
+            <textarea required name="details" id="details" placeholder="Details"></textarea>
+
+            <label for="location">Where: </label>
+            <input required name="location" id="location" type="text"
+                placeholder="Location">
+
+            <label for="eventStart">Start: </label>
+            <input required type="datetime-local" id="start" name="eventStart"
+                min="2023-02-09" max="2050-01-05">
+
+            <label for="eventEnd">End: </label>
+            <input required type="datetime-local" id="end" name="eventEnd"
+                min="2023-02-09" max="2050-01-05">
+
+            <label for="image">Image: </label>
+            <input required type="file" id="image" name="image">
+
+            <input type="submit" value="submit">
+        </form>
+    </div>
+
+</main>
+
+<%- include('../partials/footer.ejs') %>
